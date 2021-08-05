@@ -47,13 +47,13 @@ Test if the environment is set up correctly by building the client and run it in
 
 [zeroeightysix](https://github.com/zeroeightysix) for the original [KAMI](https://github.com/zeroeightysix/KAMI)
 
-the [Kami Blue](https://github.com/kami-blue) team for the continuation of [KAMI](https://github.com/zeroeightysix/KAMI)
+[KAMI Blue](https://github.com/kami-blue) for the continuation of [KAMI](https://github.com/zeroeightysix/KAMI)
 
 [ronmamo](https://github.com/ronmamo) for [Reflections](https://github.com/ronmamo/reflections)
 
-The [Minecraft Forge](https://github.com/MinecraftForge)  team for [Forge](https://files.minecraftforge.net/)
+[MinecraftForge](https://github.com/MinecraftForge) for [Forge](https://github.com/MinecraftForge/MinecraftForge)
 
-All the [contributors](https://github.com/lambda-client/lambda/graphs/contributors), including the ones who will be remembered in comments and in our hearts. This has been a huge community effort, and we would not be here without you.
+All the [contributors](https://github.com/lambda-client/lambda/graphs/contributors)
 
 ### Stargazers
 [![Stargazers](https://starchart.cc/lambda-client/lambda.svg)](https://starchart.cc/lambda-client/lambda)

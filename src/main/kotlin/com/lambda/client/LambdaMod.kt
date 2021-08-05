@@ -25,9 +25,9 @@ class LambdaMod {
         const val ID = "lambda"
         const val DIRECTORY = "lambda/"
 
-        const val VERSION = "2.07.xx-dev" // Used for debugging. R.MM.DD-hash format.
-        const val VERSION_SIMPLE = "2.07.xx-dev" // Shown to the user. R.MM.DD[-beta] format.
-        const val VERSION_MAJOR = "2.07.01" // Used for update checking. RR.MM.01 format.
+        const val VERSION = "2.08.xx-dev" // Used for debugging. R.MM.DD-hash format.
+        const val VERSION_SIMPLE = "2.08.xx-dev" // Shown to the user. R.MM.DD[-beta] format.
+        const val VERSION_MAJOR = "2.08.01" // Used for update checking. RR.MM.01 format.
 
         const val APP_ID = "835368493150502923"
 
