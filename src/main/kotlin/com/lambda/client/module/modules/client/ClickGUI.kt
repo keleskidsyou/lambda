@@ -57,6 +57,7 @@ object ClickGUI : Module(
                     else -> scale = getRoundedScale()
                 }
             }
+            LambdaClickGui.updatePluginEntries()
         }
 
         listener<ShutdownEvent> {

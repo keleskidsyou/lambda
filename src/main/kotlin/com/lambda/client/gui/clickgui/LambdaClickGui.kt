@@ -2,21 +2,24 @@ package com.lambda.client.gui.clickgui
 
 import com.lambda.client.gui.AbstractLambdaGui
 import com.lambda.client.gui.clickgui.component.ModuleButton
+import com.lambda.client.gui.clickgui.component.PluginButton
 import com.lambda.client.gui.clickgui.window.ModuleSettingWindow
 import com.lambda.client.gui.rgui.Component
 import com.lambda.client.gui.rgui.windows.ListWindow
 import com.lambda.client.module.AbstractModule
 import com.lambda.client.module.ModuleManager
 import com.lambda.client.module.modules.client.ClickGUI
+import com.lambda.client.plugin.PluginManager
 import com.lambda.client.util.math.Vec2f
 import org.lwjgl.input.Keyboard
 
 object LambdaClickGui : AbstractLambdaGui<ModuleSettingWindow, AbstractModule>() {
 
     private val moduleWindows = ArrayList<ListWindow>()
+    var pluginWindow: ListWindow
 
     init {
-        val allButtons = ModuleManager.modules
+        val moduleButtons = ModuleManager.modules
             .groupBy { it.category.displayName }
             .mapValues { (_, modules) -> modules.map { ModuleButton(it) } }
 
@@ -24,7 +27,7 @@ object LambdaClickGui : AbstractLambdaGui<ModuleSettingWindow, AbstractModule>()
         var posY = 0.0f
         val screenWidth = mc.displayWidth / ClickGUI.getScaleFactorFloat()
 
-        for ((category, buttons) in allButtons) {
+        for ((category, buttons) in moduleButtons) {
             val window = ListWindow(category, posX, posY, 90.0f, 300.0f, Component.SettingGroup.CLICK_GUI)
 
             window.children.addAll(buttons.customSort())
@@ -37,6 +40,9 @@ object LambdaClickGui : AbstractLambdaGui<ModuleSettingWindow, AbstractModule>()
             }
         }
 
+        pluginWindow = ListWindow("Plugins", posX, posY, 150.0f, 300.0f, Component.SettingGroup.CLICK_GUI)
+
+        windowList.add(pluginWindow)
         windowList.addAll(moduleWindows)
     }
 
@@ -71,6 +77,23 @@ object LambdaClickGui : AbstractLambdaGui<ModuleSettingWindow, AbstractModule>()
             } else {
                 setModuleButtonVisibility { true }
             }
+        }
+    }
+
+    fun updatePluginEntries() {
+        val pluginButtons = PluginManager.loadedPlugins
+            .filter { !pluginWindow.children.map { button -> button.name }.contains(it.name) }
+            .groupBy { it.name }
+            .mapValues { (_, modules) -> modules.map { PluginButton(it) } }
+
+        if (pluginButtons.isNotEmpty()) {
+            pluginButtons.forEach {
+                pluginWindow.children.addAll(it.value)
+            }
+
+            windowList.clear()
+            windowList.add(pluginWindow)
+            windowList.addAll(moduleWindows)
         }
     }
 
