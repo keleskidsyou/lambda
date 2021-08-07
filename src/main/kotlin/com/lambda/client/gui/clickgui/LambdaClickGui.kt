@@ -16,7 +16,7 @@ import org.lwjgl.input.Keyboard
 object LambdaClickGui : AbstractLambdaGui<ModuleSettingWindow, AbstractModule>() {
 
     private val moduleWindows = ArrayList<ListWindow>()
-    var pluginWindow: ListWindow
+    private var pluginWindow: ListWindow
 
     init {
         val moduleButtons = ModuleManager.modules

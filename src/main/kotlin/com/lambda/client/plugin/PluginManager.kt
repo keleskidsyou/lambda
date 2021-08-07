@@ -142,13 +142,13 @@ internal object PluginManager : AsyncLoader<List<PluginLoader>> {
             try {
                 plugin.onLoad()
             } catch (e: NoSuchFieldError) {
-                LambdaMod.LOG.error("Please do not load plugin in unobfuscated environment")
+                LambdaMod.LOG.error("NoSuchFieldError: Please do not load plugin in unobfuscated environment")
                 return
             } catch (e: NoSuchMethodError) {
-                LambdaMod.LOG.error("Please do not load plugin in unobfuscated environment")
+                LambdaMod.LOG.error("NoSuchMethodError: Please do not load plugin in unobfuscated environment")
                 return
             } catch (e: NoClassDefFoundError) {
-                LambdaMod.LOG.error("Please do not load plugin in unobfuscated environment")
+                LambdaMod.LOG.error("NoClassDefFoundError: Please do not load plugin in unobfuscated environment")
                 return
             }
 
